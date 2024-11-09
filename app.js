@@ -1,4 +1,4 @@
-const ITEMS = require('./data.cjs');
+const ITEMS = require('./data.js');
 require("dotenv").config()
 const express=require('express');
 const ejs=require('ejs');
