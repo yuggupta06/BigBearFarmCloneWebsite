@@ -97,7 +97,9 @@ app.get('/search',function(req,res){
 app.get('/refund',function(req,res){
     res.render('refund')
 })
-
+app.get('/cart',function(req,res){
+  res.render('cart')
+})
 
 
 app.get("/product/:item",(req,res)=>{
@@ -122,7 +124,7 @@ app.get("/product/:item",(req,res)=>{
     return foundUser.save()
     })
   }else{
-    res.redirect("/")
+    res.redirect("/auth/google")
   }
   setTimeout(()=>{
     res.redirect("/")
@@ -158,10 +160,6 @@ app.get("/:item",(req,res)=>{
   }
 })
 
-
 app.listen(3000,function(){
     console.log("app is running in port 3000");
 })
-
-
-

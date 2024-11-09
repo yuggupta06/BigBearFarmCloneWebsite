@@ -26,7 +26,7 @@ const prevButton = document.getElementById('prev-slide');
         // Optionally add auto slide functionality
         setInterval(() => {
             showSlide(index + 1);
-        }, 25000); // 
+        }, 7500); // 
 
 const button=document.getElementsByClassName('Button');        
 function changeColour(selectedButton) {
