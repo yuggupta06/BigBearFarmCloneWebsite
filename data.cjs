@@ -1,26 +1,30 @@
 ITEMS=[
     {
-        name:"Caramel_Tofee",
+        name:"Caramel Tofee",
         price:575,
-        quantity:1
-
+        quantity:1,
+        src:"/assets (1)/asset 6.png"
     },
     {
-        name:"Stawberry_Jam",
+        name:"Strawberry Jam",
         price:475,
-        quantity:1
+        quantity:1,
+        src:"/assets (1)/asset 7.png"
+        
 
     },
     {
-        name:"Three_Citrus_Marmalade",
+        name:"Three Citrus Marmalade",
         price:350,
-        quantity:1
+        quantity:1,
+        src:"/assets (1)/asset 8.png"
 
     },
     {
-        name:"Lemon_Curd",
+        name:"Lemon Curd",
         price:400,
-        quantity:1
+        quantity:1,
+        src:"/assets (1)/asset 9.png"
 
     },
 

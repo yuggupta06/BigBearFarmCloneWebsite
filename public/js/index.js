@@ -46,29 +46,6 @@ function changeColour(selectedButton) {
 
 
 
-
-//   // Function to close the popup
-//   function closePopup() {
-//     document.getElementById("overlay").style.display = "none";
-//     document.getElementById("popupModal").style.display = "none";
-//   }
-
-
-  
-//     // Select all elements with the class 'myButtonClass'
-//     const buttons = document.querySelectorAll('.But');
-    
-//     // Loop through each button and add a click event listener
-//     buttons.forEach(button => {
-//         button.addEventListener('click', () => {
-//             setTimeout(()=>{
-//                 document.getElementById("overlay").style.display = "block";
-//                 document.getElementById("popupModal").style.display = "block";
-//                 setTimeout(closePopup,1000)
-//             },1000)
-//         });
-//     });
-    
 function openPopup() {
     document.getElementById("overlay").style.display = "block";
     document.getElementById("popupModal").style.display = "block";

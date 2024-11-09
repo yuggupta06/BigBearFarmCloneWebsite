@@ -5,6 +5,7 @@ const ejs=require('ejs');
 const bodyparser=require('body-parser');
 const path =require("path")
 const mongoose = require('mongoose');
+const lodash=require("lodash")
 const passport=require("passport")
 const session=require("express-session")
 const passportLocalMongoose=require("passport-local-mongoose");
@@ -97,9 +98,6 @@ app.get('/refund',function(req,res){
     res.render('refund')
 })
 
-app.get("/item/:item",(req,res)=>{
-  res.render("item",{itemName:req.params.item})
-})
 
 
 app.get("/product/:item",(req,res)=>{
@@ -151,6 +149,15 @@ app.get('/aboutus',function(req,res){
 app.get('/contact',function(req,res){
     res.render('contact');
 })
+
+app.get("/:item",(req,res)=>{
+  for (let i=0;i<ITEMS.length;i++) {
+    if(req.params.item==lodash.toLower((ITEMS[i].name).replace(/ /g,"-"))){
+      res.render("item",{Item:ITEMS[i]})
+    }
+  }
+})
+
 
 app.listen(3000,function(){
     console.log("app is running in port 3000");

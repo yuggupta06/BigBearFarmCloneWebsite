@@ -1,25 +1,25 @@
-<%- include('header');%>
+<%- include('partials/header');%>
 <div class="h-[150px]"></div>
 <div>
-    <div class="flex flex-row pl-[180px]">
-        <img src="/assets (1)/asset 11.png" >
+    <div class="flex flex-col sm:flex-row sm:pl-[180px] items-center sm:gap-[100px] m-4">
+        <img src="<%=Item.src%>"" >
         <div class="flex flex-col">
             <p class="text-gray-500 text-sm">Big Bearm Farm</p>
-            <p class="text-3xl font-bold"><%=itemName %></p>
+            <p class="text-3xl font-bold"><%=Item.name%></p>
             <p class="pt-2">⭐⭐⭐⭐ 45 reviews</p>
             <div class="flex flex-row pt-4">
-                <span>Rs.375.00</span>
+                <span class="text-lg pr-8">Rs.375.00</span>
                 <button class="bg-gray-900 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-2xl">
-                    <span>Sold-out</span>
+                    <span class="">Sold-out</span>
                 </button>
                   
             </div>
-            <p class="text-sm">Tax included.Shipping calculated at checkout</p>
-            <p class="font-semibold">Farm fresh tangy tomatoes combined with the crisp, sharp</p>
-            <p class="font-semibold">flavour of mustard - in true Himachali style!</p>
-            <p>Quantity</p>
-            <div class="bg-gray-100 rounded shadow-md w-40">
-                <div class="flex items-center space-x-2">
+            <p class="text-sm text-gray-500">Tax included.Shipping calculated at checkout</p>
+            <p class="font-semibold pt-8 text-lg text-gray-700">Farm fresh tangy tomatoes combined with the crisp, sharp</p>
+            <p class="font-semibold pt-1 text-lg text-gray-700">flavour of mustard - in true Himachali style!</p>
+            <p class="pt-8">Quantity</p>
+            
+                <div class="flex items-center space-x-2 pt-4 pb-4">
                     <!-- Decrement button -->
                     <button 
                         onclick="decrement()" 
@@ -45,7 +45,7 @@
                         +
                     </button>
                 </div>
-            </div>
+
             
             <script>
                 function increment() {
@@ -67,4 +67,4 @@
         </div>
     </div>
 </div>
-<%- include('footer');%>
+<%- include('partials/footer');%>
