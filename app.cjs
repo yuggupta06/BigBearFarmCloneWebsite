@@ -6,11 +6,14 @@ const bodyparser=require('body-parser');
 const path =require("path")
 const mongoose = require('mongoose');
 const lodash=require("lodash")
+//  for sessions and google authentication system
 const passport=require("passport")
 const session=require("express-session")
 const passportLocalMongoose=require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require("mongoose-findorcreate")
+
+
 const app=express();
 app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs');
@@ -119,21 +122,19 @@ app.get("/product/:item",(req,res)=>{
         }
       })
     }
-    return foundUser.save()
+    foundUser.save()
+    setTimeout(()=>{
+      res.redirect("/")
+    },1500)
     })
   }else{
-    res.redirect("/")
+    res.redirect("/refund")
   }
-  setTimeout(()=>{
-    res.redirect("/")
-  },1500)
 })
 
 
 
-app.get('/footer',function(req,res){
-    res.render('footer')
-})
+
 
 app.get('/search',function(req,res){
     res.render('search');
