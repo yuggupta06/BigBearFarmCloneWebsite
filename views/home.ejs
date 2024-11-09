@@ -1,0 +1,185 @@
+
+<%- include('header');%>
+ <div id="overlay" class="overlay"></div>
+
+<!-- Popup Modal -->
+<div id="popupModal" class="modal">
+  <h2>The item is succesfully added in your cart</h2>
+
+</div>
+
+
+        <div class="relative w-full overflow-hidden">
+            <div class="carousel-slide flex w-full">
+                <!-- Slide 1 -->
+                <div class="flex-shrink-0 w-full h-screen h-[300px] md:h-[600px] bg-blue-500 text-white flex items-center justify-center">
+                <video 
+                src="assets (1)/video.mp4" 
+                class="w-full h-full object-cover" 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                preload="auto"
+                ></video>
+                </div>
+        
+                <!-- Slide 2 -->
+                <div class="flex-shrink-0 w-full h-screen h-[300px] md:h-[600px] bg-green-500 text-white flex items-center justify-center">
+                    <img src="assets (1)/asset 1.jpeg" alt="" class="w-full h-full object-cover">
+                </div>
+                <!-- Slide 3 -->
+                <div class="flex-shrink-0 w-full h-screen h-[300px] md:h-[600px] bg-red-500 text-white flex items-center justify-center">
+                    <img src="assets (1)/asset 3.png" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-shrink-0 w-full h-screen h-[300px] md:h-[600px] bg-red-500 text-white flex items-center justify-center">
+                    <img src="assets (1)/asset 4.png" alt="" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <!-- Slider Controls -->
+            <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="prev-slide">
+                &#10094;
+            </button>
+            <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="next-slide">
+                &#10095;
+            </button>
+        </div>
+        <div class="mt-16 mb-16 pt-12 pb-16 flex flex-col justify-center items-center bg-[#72173f] text-white w-full">
+            <span class="font-seriif text-4xl font-bold">We use only the BEST PRODUCE.</span>
+            <span class="font-seriif text-2xl font-bold pt-4">No wonder our preserves taste so good!</span>
+        </div>
+        <div>
+            <div>
+                <span class="font-sans text-4xl font-extrabold flex justify-center">Shop by category</span>
+            </div>
+            <div class="flex flex-row justify-center items-center pt-12 gap-4 overflow-x-auto">
+                <button class="button bg-transparent text-gray-400 font-semibold py-1 px-5 border border-gray-500" onclick="changeColour(this)">
+                    Bestsellers
+                </button>
+                <button class="button bg-transparent text-gray-400 font-semibold py-1 px-1 border border-gray-500" onclick="changeColour(this)">
+                    New Arrival
+                </button>
+                <button class="button bg-transparent text-gray-400 font-semibold py-1 px-5 border border-gray-500" onclick="changeColour(this)">
+                    Pantry
+                </button>
+                <button class="button bg-transparent text-gray-400 font-semibold py-1 px-5 border border-gray-500" onclick="changeColour(this)">
+                    Marmalades
+                </button>
+                <button class="button bg-transparent text-gray-400 font-semibold py-1 px-5 border border-gray-500" onclick="changeColour(this)">
+                    Honey
+                </button>
+            </div>
+            
+        </div>
+
+
+        <!-- overflow-x-auto -->
+            <div class="pt-12 pl-6 md:pl-[120px] gap-7 flex flex-row overflow-x-auto">    
+                <div class="flex flex-col">
+                    <a href="/item/caramel-tofee"><img src="assets (1)/asset 6.png" alt="" class="max-w-[300px] hover:scale-105 duration-300"></a>
+                    <a href="/product/Caramel_Tofee"><button class=" bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border-4 myButton">Add to Cart</button></a>
+                    <span class="font-bold pl-16 pt-4 hover:underline">Caramel Tofee 300gm</span>
+                    <span class="pl-16 pt-1">⭐⭐⭐⭐ 183 reviews</span>
+                    <span class="pl-[100px] pt-2 font-semibold">Rs. 575.00</span>
+                </div>
+                <div class="flex flex-col">
+                    <a href="/item/strawberry-jam"><img src="assets (1)/asset 7.png" alt="" class="max-w-[300px] hover:scale-105 duration-300"></a>
+                    <a href="/product/Stawberry_Jam"><button class="button bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border-4 myButton">Add to Cart</button></a>
+                    <span class="font-bold pl-16 pt-4 hover:underline">Stawberry Jam 350gm</span>
+                    <span class="pl-16 pt-1">⭐⭐⭐⭐ 34 reviews</span>
+                    <span class="pl-[100px] pt-2 font-semibold">Rs. 475.00</span>
+                </div>
+                <div class="flex flex-col">
+                    <a href="/item/three-citus-marmalade"><img src="assets (1)/asset 8.png" alt="" class="max-w-[300px] hover:scale-105 duration-300"></a>
+                    <a href="/product/Three_Citrus_Marmalade"><button class="button bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border-4 myButton">Add to Cart</button></a>
+                    <span class="font-bold pl-16 pt-4 hover:underline">Three Citrus Marmalade 350gm</span>
+                    <span class="pl-16 pt-1">⭐⭐⭐⭐ 45 reviews</span>
+                    <span class="pl-[100px] pt-2 font-semibold">Rs. 350.00</span>
+                </div>
+                <div class="flex flex-col">
+                    <a href="/item/lemon-curd"><img src="assets (1)/asset 9.png" alt="" class="max-w-[300px] hover:scale-105 duration-300"></a>
+                    <a href="/product/Lemon_Curd"><button class="button bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border-4 myButton">Add to Cart</button></a>
+                    <span class="font-bold pl-16 pt-4 hover:underline">Lemon Curd 315gm</span>
+                    <span class="pl-16 pt-1">⭐⭐⭐⭐ 33 reviews</span>
+                    <span class="pl-[100px] pt-2 font-semibold">Rs. 400.00</span>
+                </div>
+            </div>
+        <div class="h-[100px]"></div>
+        <div class="pt-16 bg-[#f6f4f0] h-[400px] flex flex-row overflow-x-auto">
+            <div class="flex flex-col items-center w-full">
+                <span> ★ ★ ★ ★ ★</span>
+                <span>Indrani Pal</span>
+                <p class="pt-12 pb-[90px]">"Oh my god!! They are absolutely delicious. So fresh and so well packed. I was blown away!
+                     Can't wait to order some more for my friends
+                     and family. Thanks a lot for such amazing stuff."
+                </p>
+            </div>
+
+        </div>
+        <div class="flex sm:flex-row flex-col pr-4 pl-4 sm:pr-[100px] sm:pl-[100px] pt-12">
+            <div class="sm:w-[800px]">
+                <img src="assets (1)/asset 24.png" alt="" class="w-screen sm:max-w-[650px]">
+            </div>
+            <div class="sm:w-[800px] sm:pl-[100px] bg-[#72173f] flex flex-col">
+                <span class="text-4xl font-bold pt-[50px] sm:pt-[250px] text-yellow-200">Our Story</span>
+
+                <span class="pt-6 text-white">At Big Bear Farms we harvest fruit as our family,The Johnsons,</span>
+                <span class="pt-2 text-white"> have done for over three generations.</span>
+                <span class="pt-2 text-white">Each year, we pick our best fruit to make delicious preserves as</span>
+                <span class="pt-2 text-white">time-honored tradition.</span>
+            </div>
+        </div>
+        <div class="pt-16 flex items-center flex-col">
+            <span class="text-4xl font-extrabold"> Fresh in Session</span>
+        </div>    
+        <div class="flex flex-row sm:pl-[100px] pt-16">
+            <div class="flex flex-row pl-2">
+                <img src="assets (1)/Raw_Plum_Pickle_2.png" alt="" class="block sm:hidden h-[250px] rounded-2xl">
+                <img src="assets (1)/Untitled_design_47.png" alt="" class="hidden sm:block w-[90px] h-[90px] md:w-[800px]  md:h-[900px] rounded-xl">
+                <div  class="block sm:hidden w-[100px] flex flex-col pl-4">
+                    <img src="assets (1)/RawPlumPickle-1.png" alt="">
+                    <span class="font-bold hover:underline">Raw Plum Pickle 500gm</span>
+                    <span class="pt-1">⭐⭐⭐⭐ 7 reviews</span>
+                    <span class="pt-2 font-semibold">Rs. 375.00</span>
+                </div>
+            </div>
+            <div class="flex flex-col pl-8 hidden sm:block">
+                <div class="flex flex-col items-center">
+                    <img src="assets (1)/asset 21.png" alt="" class="w-[400px]">
+                    <span class="font-bold hover:underline">Bottled Peach 500gm</span>
+                    <span class="pt-1">⭐⭐⭐⭐ 45 reviews</span>
+                    <span class="pt-2 font-semibold">Rs. 499.00</span>
+                </div>
+                <div class="hidden sm:block">
+                    <img src="assets (1)/peach.png" alt="" class="rounded-xl w-[400px]">
+                </div>
+            </div>
+        </div>
+        <div class="pt-[100px] flex flex-col items-center pb-[100px]">
+            <p class="text-5xl font-extrabold">Build your own boxes</p>
+            <p class="pt-8 text-gray-500 pb-8">Gift your loved ones a personalised box of your choice and add a customised message</p>
+            <button class="button px-8 py-3 text-white border-gray-500 hover:border-2 border bg-[#72173f] rounded-xl shadow-lg duration-300">Build Now</button>
+        </div>
+        <div class="bg-[#72173f] w-full flex flex-col sm:flex-row items-center sm:gap-[100px] gap-12 sm:pl-[100px] pt-[100px] pb-[100px]">
+            <div class="flex flex-col items-center">
+                <img src="assets (1)/asset 31.png" alt="" class="w-[100px]">
+                <span class="font-bold text-white text-xl pt-4">Farm Fresh Preserve</span>
+                <span class="text-white pt-4">Our recipes have three simple ingredients</span>
+                <span class="text-white pt-2">twice the fruit,half the sugar and a splash of lime juice</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets (1)/asset 32.png" alt="" class="w-[100px]">
+                <span class="font-bold text-white text-xl pt-4">HOMEMADE IN HIMACHAL</span>
+                <span class="text-white pt-4">Our preserves are traditional, handmade and slow</span>
+                <span class="text-white pt-2">cooked in small batches for the best flavour.</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <img src="assets (1)/asset 33.png" alt="" class="w-[100px]">
+                <span class="font-bold text-white text-xl pt-4">Farm Fresh Preserve</span>
+                <span class="text-white pt-4">Our products do not include any artificial</span>
+                <span class="text-white pt-2">preservatives, letting the flavour of fresh fruit shine</span>
+                <span class="text-white pt-2">though</span>
+            </div>
+        </div>
+        <div class="h-[80px]"></div>
+<%- include('footer');%>

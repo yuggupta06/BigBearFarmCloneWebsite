@@ -1,0 +1,56 @@
+<%- include('first');%>
+<header>
+    <div class="fixed top-0 left-0 right-0 p-2 flex justify-between items-center bg-[#72173f] z-50">
+        <div id="nav-menu" class="hidden lg:flex gap-12">
+            <a href="/contact" class="font-medium hover:text-blue-700 pl-[80px] text-xl text-white">Shop</a>
+            <a href="#" class="font-medium hover:text-blue-700 text-xl text-white">Gift Boxes</a>
+            <a href="#" class="font-medium hover:text-blue-700 text-xl text-white">Recipes</a>
+            <a href="/aboutus" class="font-medium hover:text-blue-700 text-xl text-white">About Us</a>
+            <a href="/contact" class="font-medium hover:text-blue-700 text-xl text-white">Contact</a>
+        </div>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="p-1 lg:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-bars text-white"></i>
+        </button>
+        <div class="flex flex-row justify-center items-center md:pr-[100px] gap-4">
+            <i class="fa-solid fa-magnifying-glass tinted-image"></i>
+            <img src="assets (1)/asset 62.svg" alt="" class="w-12 h-12 tinted-image">
+            <a href="/auth/google"><img src="assets (1)/asset 55.svg" alt="" class="w-6 h-6 tinted-image"></a>
+
+        </div>
+        
+        <!-- Fixed Image -->
+        <img src="assets (1)/asset 0.png" alt="" class="fixed top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[140px] md:h-[140px]">
+        
+    </div>
+
+    <!-- Mobile Navigation Dialog -->
+    <div id="nav-dialog" class="hidden fixed z-10 md:hidden bg-[#72173f] inset-0 p-3">
+        <div class="flex justify-between">
+            <button class="p-2" onclick="handleMenu()">
+                <i class="fa-solid fa-xmark text-white"></i>
+            </button>
+        </div>
+        <div class="mt-6">
+            <a href="#" class="font-medium m-3 p-3 hover:bg-[#8b2c55] block rounded-lg text-xl text-white">Shop</a>
+            <a href="#" class="font-medium m-3 p-3 hover:bg-[#8b2c55] block rounded-lg text-xl text-white">Gift Boxes</a>
+            <a href="#" class="font-medium m-3 p-3 hover:bg-[#8b2c55] block rounded-lg text-xl text-white">Recipes</a>
+            <a href="#" class="font-medium m-3 p-3 hover:bg-[#8b2c55] block rounded-lg text-xl text-white">About Us</a>
+            <a href="#" class="font-medium m-3 p-3 hover:bg-[#8b2c55] block rounded-lg text-xl text-white">Contact</a>
+        </div>
+        <div class="flex flex-col bg-[#8b2c55] -mx-5">
+            <div class="flex flex-row pb-12 pt-[100px] pl-6">
+                <img src="assets (1)/asset 55.svg" alt="" class="w-8 h-8">
+                <span>Log in</span>
+            </div>
+            <div class="flex flex-row gap-4 pl-6">
+                <img src="assets (1)/asset 50.svg" alt="" class="w-8 h-8">
+                <img src="assets (1)/asset 51.svg" alt="" class="w-8 h-8">
+            </div>
+        </div>
+        <div class="h-[1px] bg-gray-200"></div>
+    </div>
+    
+
+</header>

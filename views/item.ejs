@@ -1,0 +1,70 @@
+<%- include('header');%>
+<div class="h-[150px]"></div>
+<div>
+    <div class="flex flex-row pl-[180px]">
+        <img src="/assets (1)/asset 11.png" >
+        <div class="flex flex-col">
+            <p class="text-gray-500 text-sm">Big Bearm Farm</p>
+            <p class="text-3xl font-bold"><%=itemName %></p>
+            <p class="pt-2">⭐⭐⭐⭐ 45 reviews</p>
+            <div class="flex flex-row pt-4">
+                <span>Rs.375.00</span>
+                <button class="bg-gray-900 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-2xl">
+                    <span>Sold-out</span>
+                </button>
+                  
+            </div>
+            <p class="text-sm">Tax included.Shipping calculated at checkout</p>
+            <p class="font-semibold">Farm fresh tangy tomatoes combined with the crisp, sharp</p>
+            <p class="font-semibold">flavour of mustard - in true Himachali style!</p>
+            <p>Quantity</p>
+            <div class="bg-gray-100 rounded shadow-md w-40">
+                <div class="flex items-center space-x-2">
+                    <!-- Decrement button -->
+                    <button 
+                        onclick="decrement()" 
+                        class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
+                    >
+                        -
+                    </button>
+                    
+                    <!-- Quantity input -->
+                    <input 
+                        id="quantity" 
+                        type="number" 
+                        value="1" 
+                        min="1" 
+                        class="w-16 text-center border border-gray-300 rounded"
+                    >
+                    
+                    <!-- Increment button -->
+                    <button 
+                        onclick="increment()" 
+                        class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
+                    >
+                        +
+                    </button>
+                </div>
+            </div>
+            
+            <script>
+                function increment() {
+                    const quantityInput = document.getElementById("quantity");
+                    let quantity = parseInt(quantityInput.value);
+                    quantityInput.value = quantity + 1;
+                }
+            
+                function decrement() {
+                    const quantityInput = document.getElementById("quantity");
+                    let quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantityInput.value = quantity - 1;
+                    }
+                }
+            </script>
+            <button class="button bg-transparent font-semibold py-2 border-2 border-gray-500 rounded-xl hover:border-4">Buy Now</button>
+            
+        </div>
+    </div>
+</div>
+<%- include('footer');%>
