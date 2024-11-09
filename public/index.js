@@ -1,3 +1,5 @@
+
+
 const nav_dialog=document.getElementById('nav-dialog');
 
 function handleMenu(){
@@ -26,7 +28,7 @@ const prevButton = document.getElementById('prev-slide');
         // Optionally add auto slide functionality
         setInterval(() => {
             showSlide(index + 1);
-        }, 7500); // 
+        }, 25000); // 
 
 const button=document.getElementsByClassName('Button');        
 function changeColour(selectedButton) {
@@ -63,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            setTimeout(openPopup)
+            openPopup()
             setTimeout(closePopup,1000)
-
-
         });
     });
-});
+})
+
+
 
 
 

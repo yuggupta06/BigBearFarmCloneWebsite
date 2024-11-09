@@ -100,8 +100,16 @@ app.get('/search',function(req,res){
 app.get('/refund',function(req,res){
     res.render('refund')
 })
+app.get('/cart',function(req,res){
+  res.render('cart')
+})
 
-
+app.get('/signin',function(req,res){
+  res.render('signin')
+})
+app.get('/profile',function(req,res){
+  res.render('profile')
+})
 
 app.get("/product/:item",(req,res)=>{
   if (req.isAuthenticated()){
@@ -128,7 +136,11 @@ app.get("/product/:item",(req,res)=>{
     },1500)
     })
   }else{
+<<<<<<< HEAD
     res.redirect("/refund")
+=======
+    res.redirect("/auth/google")
+>>>>>>> 8815499e7ae5d3546dd380269ffaf3b5e26c646f
   }
 })
 
@@ -159,10 +171,6 @@ app.get("/:item",(req,res)=>{
   }
 })
 
-
 app.listen(3000,function(){
     console.log("app is running in port 3000");
 })
-
-
-
