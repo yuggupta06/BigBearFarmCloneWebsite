@@ -77,22 +77,22 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+app.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile'] })
+  );
 
+app.get('/auth/google/farm', 
+      passport.authenticate('google', { failureRedirect: '/login' }),
+      function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+      });
 
 app.get('/',function(req,res){
     res.render('home')
 })
 
-app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile'] }));
 
-
-app.get('/auth/google/farm', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
 
 app.get('/search',function(req,res){
     res.render('search')
@@ -105,8 +105,13 @@ app.get('/cart',function(req,res){
 })
 
 app.get('/signin',function(req,res){
-  res.render('signin')
+  if (req.isAuthenticated()){
+    res.redirect("profile")
+  }else{
+    res.render('signin')
+  }
 })
+
 app.get('/profile',function(req,res){
   res.render('profile')
 })
@@ -136,16 +141,9 @@ app.get("/product/:item",(req,res)=>{
     },1500)
     })
   }else{
-<<<<<<< HEAD
-    res.redirect("/refund")
-=======
     res.redirect("/auth/google")
->>>>>>> 8815499e7ae5d3546dd380269ffaf3b5e26c646f
   }
 })
-
-
-
 
 
 app.get('/search',function(req,res){
