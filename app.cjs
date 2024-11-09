@@ -101,6 +101,12 @@ app.get('/cart',function(req,res){
   res.render('cart')
 })
 
+app.get('/signin',function(req,res){
+  res.render('signin')
+})
+app.get('/profile',function(req,res){
+  res.render('profile')
+})
 
 app.get("/product/:item",(req,res)=>{
   if (req.isAuthenticated()){
