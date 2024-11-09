@@ -57,21 +57,6 @@ function closePopup() {
     document.getElementById("popupModal").style.display = "none";
 }
 
-// Set up event listeners for buttons
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.myButton');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            setTimeout(openPopup)
-            setTimeout(closePopup,1000)
-
-
-        });
-    });
-});
-
-
 
 
 

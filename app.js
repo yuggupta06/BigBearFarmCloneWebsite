@@ -89,7 +89,7 @@ app.get('/auth/google/farm',
       });
 
 app.get('/',function(req,res){
-    res.render('home')
+    res.render('home',{Items:ITEMS})
 })
 
 
@@ -110,6 +110,11 @@ app.get('/signin',function(req,res){
   }else{
     res.render('signin')
   }
+})
+app.get("/logout",function(req,res){
+  req.logOut(function(){
+    res.redirect("/");
+})
 })
 
 app.get('/profile',function(req,res){
@@ -141,7 +146,7 @@ app.get("/product/:item",(req,res)=>{
     },1500)
     })
   }else{
-    res.redirect("/auth/google")
+    res.redirect("/signin")
   }
 })
 
