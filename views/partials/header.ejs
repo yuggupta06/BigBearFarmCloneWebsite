@@ -1,4 +1,4 @@
-<%- include('first');%>
+<%- include('first'); %>
 <header>
     <div class="fixed top-0 left-0 right-0 p-2 flex justify-between items-center bg-[#72173f] z-50 p-6">
         <div id="nav-menu" class="hidden lg:flex gap-12">
@@ -13,17 +13,17 @@
         <button class="p-1 lg:hidden" onclick="handleMenu()">
             <i class="fa-solid fa-bars text-white"></i>
         </button>
-        <div class="flex flex-row justify-center items-center md:pr-[100px] gap-4">
-            <a href="/search"><i class="fa-solid fa-magnifying-glass text-white"></i>
+        <div class="flex flex-row justify-center items-center md:pr-[100px] gap-4 sm:gap-6">
+            <!-- Search Icon with Overlay Trigger -->
+            <a href="javascript:void(0);" onclick="toggleSearchOverlay()" class="sm:text-2xl">
+                <i class="fa-solid fa-magnifying-glass text-white"></i>
             </a>
-            <a href="/cart"><i class="fa-solid fa-bag-shopping text-white"></i></a>
-            <a href="/auth/google"><i class="fa-solid fa-user text-white"></i></a>
-
+            <a href="/cart"><i class="fa-solid fa-bag-shopping text-white sm:text-2xl"></i></a>
+            <a href="/auth/google"><i class="fa-solid fa-user text-white sm:text-2xl"></i></a>
         </div>
         
         <!-- Fixed Image -->
         <img src="assets (1)/asset 0.png" alt="" class="fixed top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[140px] md:h-[140px]">
-        
     </div>
 
     <!-- Mobile Navigation Dialog -->
@@ -52,6 +52,22 @@
         </div>
         <div class="h-[1px] bg-gray-200"></div>
     </div>
-    
-
 </header>
+
+<!-- Search Overlay -->
+<div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center z-50">
+    <div class="relative w-3/4 lg:w-1/2">
+        <input type="text" placeholder="Search..." class="p-4 text-xl rounded-xl bg-[#72173f] w-full">
+        <!-- Close Button -->
+        <button onclick="toggleSearchOverlay()" class="absolute top-2 right-2 p-2 text-white text-xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    function toggleSearchOverlay() {
+        const overlay = document.getElementById("search-overlay");
+        overlay.classList.toggle("hidden");
+    }
+</script>
