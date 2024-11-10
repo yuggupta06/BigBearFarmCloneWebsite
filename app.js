@@ -1,5 +1,5 @@
-const ITEMS = require('./data.js');
 require("dotenv").config()
+const ITEMS = require('./data.js');
 const express=require('express');
 const ejs=require('ejs');
 const bodyparser=require('body-parser');
