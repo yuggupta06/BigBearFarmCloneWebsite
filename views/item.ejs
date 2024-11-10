@@ -21,35 +21,34 @@
                 flavour of mustard - in true Himachali style!
             </div>
             <p class="pt-8">Quantity</p>
-            
                 <div class="flex sm:flex-row flex-col items-center space-x-2 pt-4 pb-4 gap-4">
                     <div class="flex flex-row">
                         <!-- Decrement button -->
-                    <button 
+                    <!-- <button 
                     onclick="decrement()" 
                     class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
                 >
                     -
-                </button>
+                </button> -->
                 
                 <!-- Quantity input -->
-                <input 
+                <!-- <input 
                     id="quantity" 
                     type="number" 
                     value="1" 
                     min="1" 
                     class="w-16 text-center border border-gray-300 rounded"
-                >
+                > -->
                 
                 <!-- Increment button -->
-                <button 
+                <!-- <button 
                     onclick="increment()" 
                     class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
                 >
                     +
                 </button>
-                    </div>
-                    <button class="text-white button bg-[#72173f] px-16 font-semibold py-2 border-2 border-gray-500 rounded-xl hover:border-4">Add To Cart</button>
+                    </div> -->
+                    <a href="/product/<%=Item.name%>"><button class="text-white button bg-[#72173f] px-16 font-semibold py-2 border-2 border-gray-500 rounded-xl hover:border-4">Add To Cart</button></a>
 
                 </div>
 
@@ -69,7 +68,7 @@
                     }
                 }
             </script>
-            <button class="button bg-transparent font-semibold py-2 border-2 border-gray-500 rounded-xl hover:border-4">Buy Now</button>
+            <button class="button bg-transparent font-semibold py-2 border-2 px-[90px] border-gray-500 rounded-xl hover:border-4">Buy Now</button>
             
         </div>
     </div>

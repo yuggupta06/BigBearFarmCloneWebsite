@@ -13,6 +13,8 @@ const passportLocalMongoose=require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require("mongoose-findorcreate")
 
+let backPage="/"
+
 
 const app=express();
 app.use(bodyparser.urlencoded({extended:true}));
@@ -31,7 +33,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/bearFarm")
+mongoose.connect(process.env.MONGO_URL)
 
 const userSchema=new mongoose.Schema({
     username:String,
@@ -40,7 +42,8 @@ const userSchema=new mongoose.Schema({
     items_list:[{
       name:String,
       price:Number,
-      quantity:Number
+      quantity:Number,
+      src:String
     }]
 })
 
@@ -89,10 +92,9 @@ app.get('/auth/google/farm',
       });
 
 app.get('/',function(req,res){
+  backPage="/"
     res.render('home',{Items:ITEMS})
 })
-
-
 
 app.get('/search',function(req,res){
     res.render('search')
@@ -101,7 +103,46 @@ app.get('/refund',function(req,res){
     res.render('refund')
 })
 app.get('/cart',function(req,res){
-  res.render('cart')
+  if (req.isAuthenticated()){
+    User.findById(req.user.id)
+    .then((foundUser)=>{
+      res.render('cart',{itemList:foundUser.items_list})
+    })
+  }else{
+    res.redirect("/signin",)
+  }
+})
+
+app.get("/itemAdd/:itemName",(req,res)=>{
+  itemFound=true
+  User.findById(req.user.id)
+  .then((foundUser)=>{
+    foundUser.items_list.forEach(items => {
+      if (itemFound && items.name==(req.params.itemName)){
+        items.quantity+=1
+        itemFound=false
+        foundUser.save()
+        res.redirect("/cart")
+      }
+    });
+  })
+})
+app.get("/itemSub/:itemName",(req,res)=>{
+  itemFound=true
+  User.findById(req.user.id)
+  .then((foundUser)=>{
+    foundUser.items_list.forEach(items => {
+      if (itemFound && items.name==(req.params.itemName)){
+        if (items.quantity!=0){
+          items.quantity-=1
+
+        }
+        itemFound=false
+        foundUser.save()
+        res.redirect("/cart")
+      }
+    });
+  })
 })
 
 app.get('/signin',function(req,res){
@@ -118,33 +159,51 @@ app.get("/logout",function(req,res){
 })
 
 app.get('/profile',function(req,res){
-  res.render('profile')
+  User.findById(req.user.id)
+  .then((foundUser)=>{
+    res.render('profile',{username:foundUser.username})
+  })
 })
+
+// app.post("/product/type/:item",(req,res)=>{
+//   itemFound=true
+//     if (req.isAuthenticated()){
+//       User.findById(req.user.id)
+//       .then((foundUser)=>{
+//         foundUser.items_list.forEach(items => {
+//           if (itemFound && items.name==(req.params.item.replace(/-/g,' '))){
+//             items.quantity=req.body.quantity
+//             itemFound=false
+//           }
+//         })
+//     })
+//     res.redirect(backPage)
+//   }else{
+//     res.redirect("/signin")
+//   }
+// })
 
 app.get("/product/:item",(req,res)=>{
   if (req.isAuthenticated()){
-    itemFound=false
+    itemFound=true
     User.findById(req.user.id)
     .then((foundUser)=>{
       foundUser.items_list.forEach(items => {
-        if (items.name==req.params.item){
+        if (itemFound && items.name==(req.params.item)){
           items.quantity+=1
-          itemFound=true
+          itemFound=false
         }
       });
-      
-      if(!itemFound){
+      if(itemFound){
       ITEMS.forEach(items=>{
-        if (items.name==req.params.item){
+        if (items.name==(req.params.item)){
           foundUser.items_list.unshift(items)           //unsfhift for push at st of the array
         }
       })
     }
     foundUser.save()
-    setTimeout(()=>{
-      res.redirect("/")
-    },1500)
-    })
+  })
+  res.redirect("/")
   }else{
     res.redirect("/signin")
   }
@@ -167,6 +226,8 @@ app.get('/contact',function(req,res){
 })
 
 app.get("/:item",(req,res)=>{
+  // console.log(req.params.item)
+  // backPage="/"+req.params.item.toString()
   for (let i=0;i<ITEMS.length;i++) {
     if(req.params.item==lodash.toLower((ITEMS[i].name).replace(/ /g,"-"))){
       res.render("item",{Item:ITEMS[i]})

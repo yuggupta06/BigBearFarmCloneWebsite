@@ -5,47 +5,46 @@
         <span class="text-5xl font-extrabold sm:float-left pl-[100px] pt-2">Your Cart</span>
         <span class="hover:underline sm:float-right pt-8 pl-[100px] sm:pr-16">Continue Shopping</span>
     </div>
+    <% let total=0%>
 
     <div class="hidden sm:flex sm:justify-between sm:items-center pt-8 sm:pl-[150px] sm:pr-[150px] pb-4">
         <span class="text-sm text-gray-400 text-left">Product</span>
         <span class="text-sm text-gray-400">Quantity</span>
         <span class="text-sm text-gray-400 text-right">Total</span>
-    </div>
-
+    </div
     <div class="w-full h-[0.1px] bg-gray-300 my-1"></div>
+    <% itemList.forEach((item)=>{%>
+        <% total+=item.price*item.quantity%>
+        <div class="flex sm:flex-row flex-col sm:pl-[100px] pl-8">
+            <img src="<%=item.src%>" alt="" class="sm:h-[130px]">
+            <div class="flex flex-col gap-2 pl-8 w-[220px]">
+                <span class="hover:underline text-lg font-semibold pl-4"><%=item.name%> 300gm</span>
+                <span class="pl-16">Rs.<%=item.price%></span>
+            </div>
+            
+            <div class="flex items-center space-x-2 pt-4 pb-4 sm:pl-[250px] pl-16">
+                <!-- Decrement button -->
+                <a href="/itemSub/<%=item.name%>"><button  
+                    class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400">-</button>
+                </a>
+                <!-- Quantity input -->
+                <input 
+                    id="quantity" 
+                    type="number" 
+                    value="<%=item.quantity%>" 
+                    min="<%=item.quantity%>" 
+                    class="w-16 text-center border border-gray-300 rounded"
+                    readonly
+                >
+                <!-- Increment button -->
+                <a href="/itemAdd/<%=item.name%>">
+                    <button class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400">+</button></a>
+      
+            </div>
+            <span class="pl-[475px] pt-12 font-semibold hidden sm:block">Rs.<%=item.price*item.quantity%></span>
+        </div>
 
-    <div class="flex sm:flex-row flex-col sm:pl-[100px] pl-8">
-        <img src="/assets (1)/asset 6.png" alt="" class="sm:h-[130px]">
-        <div class="flex flex-col gap-2 pl-8">
-            <span class="hover:underline text-lg font-semibold pl-4">Caramell Tofee 300gm</span>
-            <span class="pl-16">Rs.575.00</span>
-        </div>
-        <div class="flex items-center space-x-2 pt-4 pb-4 sm:pl-[250px] pl-16">
-            <!-- Decrement button -->
-            <button 
-                onclick="decrement()" 
-                class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
-            >
-                -
-            </button>
-            <!-- Quantity input -->
-            <input 
-                id="quantity" 
-                type="number" 
-                value="1" 
-                min="1" 
-                class="w-16 text-center border border-gray-300 rounded"
-            >
-            <!-- Increment button -->
-            <button 
-                onclick="increment()" 
-                class="bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-400"
-            >
-                +
-            </button>
-        </div>
-        <span class="pl-[475px] pt-12 font-semibold hidden sm:block">Rs.575.00</span>
-    </div>
+    <%})%>
 
     <div class="w-full h-[0.1px] bg-gray-300 my-1"></div>
 
@@ -57,7 +56,7 @@
         <div class="flex flex-col sm:pl-[700px]">
             <div>
                 <span class="font-extrabold text-2xl">Estimated total</span>
-                <span class="pl-2">Rs.575.00</span>
+                <span class="pl-2">Rs.<%=total%></span>
             </div>
             <span class="text-gray-500 text-sm">Tax include.Shipping and discounts</span>
             <span class="pb-4 text-gray-500 text-sm"> calculated at checkout.</span>
