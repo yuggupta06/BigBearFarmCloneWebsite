@@ -2,7 +2,7 @@
 <header>
     <div class="fixed top-0 left-0 right-0 p-2 flex justify-between items-center bg-[#72173f] z-50 p-6">
         <div id="nav-menu" class="hidden lg:flex gap-12">
-            <a href="/" class="font-medium hover:underline hover:text-blue-700 pl-[80px] text-xl text-white duration-300">Home</a>
+            <a href="/" class="font-medium hover:text-blue-700 pl-[80px] text-xl text-white duration-300">Home</a>
             <a href="#" class="font-medium hover:text-blue-700 text-xl text-white duration-300">Gift Boxes</a>
             <a href="#" class="font-medium hover:text-blue-700 text-xl text-white duration-300">Recipes</a>
             <a href="/aboutus" class="font-medium hover:text-blue-700 text-xl text-white duration-300">About Us</a>
@@ -16,10 +16,10 @@
         <div class="flex flex-row justify-center items-center md:pr-[100px] gap-4 sm:gap-6">
             <!-- Search Icon with Overlay Trigger -->
             <a href="javascript:void(0);" onclick="toggleSearchOverlay()" class="sm:text-2xl">
-                <i class="fa-solid fa-magnifying-glass text-white"></i>
+                <i class="fa-solid fa-magnifying-glass text-white hover:text-blue-700"></i>
             </a>
-            <a href="/cart" class="sm:text-2xl"><i class="fa-solid fa-bag-shopping text-white"></i></a>
-            <a href="/signin" class="sm:text-2xl"><i class="fa-solid fa-user text-white"></i></a>
+            <a href="/cart" class="sm:text-2xl"><i class="fa-solid fa-bag-shopping text-white hover:text-blue-700"></i></a>
+            <a href="/signin" class="sm:text-2xl "><i class="fa-solid fa-user text-white hover:text-blue-700"></i></a>
 
         </div>
         
@@ -46,19 +46,26 @@
 </header>
 
 <!-- Search Overlay -->
-<div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center z-50">
+<div id="search-overlay" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center items-start pt-20 z-50">
     <div class="relative w-3/4 lg:w-1/2">
-        <input type="text" placeholder="Search..." class="p-4 text-xl rounded-xl bg-[#72173f] w-full">
-        <!-- Close Button -->
-        <button onclick="toggleSearchOverlay()" class="absolute top-2 right-2 p-2 text-white text-xl">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+        <!-- Search Bar -->
+        <div class="fixed top-0 left-0 right-0 mx-auto w-3/4 lg:w-1/2 p-4">
+            <input id="search-input" type="text" placeholder="Search..." class="p-4 text-xl rounded-xl bg-[#72173f] w-full" oninput="showSearchResults()">
+            
+            <!-- Close Button -->
+            <button onclick="toggleSearchOverlay()" class="absolute top-2 right-2 p-6 text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <!-- New Div for Search Results -->
+        <a id="search-link" href="">
+        <div id="search-results" class="flex flex-row space-x-4 mt-2 ml-8 hidden p-4 bg-white rounded-lg shadow-md sm:w-[500px] w-3/4">
+            <img id="item_img" src="" alt="" class="w-[50px]">
+            <span class="text-2xl font-semibold pt-2 pl-1" id="itemname">Search results will appear here...</span>
+        </div>
+        </a>
     </div>
 </div>
 
-<script>
-    function toggleSearchOverlay() {
-        const overlay = document.getElementById("search-overlay");
-        overlay.classList.toggle("hidden");
-    }
-</script>
+<!-- JavaScript -->

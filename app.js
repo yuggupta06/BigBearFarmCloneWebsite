@@ -1,5 +1,5 @@
 require("dotenv").config()
-const ITEMS = require('./data.js');
+const ITEMS = require('./public/data.js');
 const express=require('express');
 const ejs=require('ejs');
 const bodyparser=require('body-parser');
@@ -17,6 +17,7 @@ let backPage="/"
 
 
 const app=express();
+app.use(express.json());
 app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs');
 
@@ -96,12 +97,17 @@ app.get('/',function(req,res){
     res.render('home',{Items:ITEMS})
 })
 
+app.get('/aboutus',function(req,res){
+  res.render('aboutus');
+})
+app.get('/contact',function(req,res){
+  res.render('contact');
+})
+
 app.get('/search',function(req,res){
     res.render('search')
 })
-app.get('/refund',function(req,res){
-    res.render('refund')
-})
+
 app.get('/cart',function(req,res){
   if (req.isAuthenticated()){
     User.findById(req.user.id)
@@ -165,24 +171,6 @@ app.get('/profile',function(req,res){
   })
 })
 
-// app.post("/product/type/:item",(req,res)=>{
-//   itemFound=true
-//     if (req.isAuthenticated()){
-//       User.findById(req.user.id)
-//       .then((foundUser)=>{
-//         foundUser.items_list.forEach(items => {
-//           if (itemFound && items.name==(req.params.item.replace(/-/g,' '))){
-//             items.quantity=req.body.quantity
-//             itemFound=false
-//           }
-//         })
-//     })
-//     res.redirect(backPage)
-//   }else{
-//     res.redirect("/signin")
-//   }
-// })
-
 app.get("/product/:item",(req,res)=>{
   if (req.isAuthenticated()){
     itemFound=true
@@ -208,22 +196,12 @@ app.get("/product/:item",(req,res)=>{
     res.redirect("/signin")
   }
 })
-
-
-app.get('/search',function(req,res){
-    res.render('search');
-})
-
 app.get('/refund',function(req,res){
     res.render('refund');
 })
-app.get('/aboutus',function(req,res){
-    res.render('aboutus');
-})
 
-app.get('/contact',function(req,res){
-    res.render('contact');
-})
+
+
 
 app.get("/:item",(req,res)=>{
   // console.log(req.params.item)
