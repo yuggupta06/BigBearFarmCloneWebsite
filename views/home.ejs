@@ -1,7 +1,7 @@
 <%- include('partials/header');%>
 
         <div class="relative w-full overflow-hidden">
-            <div class="carousel-slide flex w-full">
+            <div class="carousel-slide-1 flex w-full">
                 <!-- Slide 1 -->
                 <div class="flex-shrink-0 w-full h-screen h-[300px] md:h-[600px] bg-blue-500 text-white flex items-center justify-center">
                 <video 
@@ -28,10 +28,10 @@
                 </div>
             </div>
             <!-- Slider Controls -->
-            <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="prev-slide">
+            <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="prev-slide-1">
                 &#10094;
             </button>
-            <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="next-slide">
+            <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2" id="next-slide-1">
                 &#10095;
             </button>
         </div>
@@ -65,10 +65,10 @@
             <div class="pt-12 pl-4 md:pl-[40px] gap-7 flex flex-row overflow-x-auto">    
                 <% Items.forEach((item)=>{ %>
                     <% let link1=(item.name.toLowerCase()).replace(/ /g,'-')%>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col group">
                         <a href="/<%=link1%>"><img src="<%=item.src%>" alt="" class="max-w-[300px] hover:scale-105 duration-300"></a>
-                        <a href="/product/<%=item.name%>"><button class=" bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border-4 myButton">Add to Cart</button></a>
-                        <span class="font-bold sm:pl-16 pl-12 pt-4 hover:underline"><%=item.name%> 300gm</span>
+                        <a href="/product/<%=item.name%>"><button class=" bg-transparent font-semibold py-2 px-[100px] border-2 border-gray-500 rounded-xl hover:border myButton duration-100">Add to Cart</button></a>
+                        <span class="font-bold sm:pl-16 pl-12 pt-4 group-hover:underline"><%=item.name%> 300gm</span>
                         <span class="sm:pl-16 pl-12 pt-1">⭐⭐⭐⭐ <%Math.floor(Math.random() * (400 - 150 + 1)) + 150 %> reviews</span>
                         <span class="pl-[100px] pt-2 font-semibold">Rs. <%=item.price %></span>
                     </div>
@@ -88,7 +88,7 @@
         </div> -->
 
         <div class="relative w-full overflow-hidden">
-            <div class="carousel-slide flex w-full">
+            <div class="carousel-slide-2 flex w-full">
         
                 <!-- Slide 1 -->
                 <div class="flex-shrink-0 w-full h-screen h-[200px] md:h-[400px] bg-[#f6f4f0] text-dark flex items-center justify-center">

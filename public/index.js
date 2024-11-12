@@ -47,29 +47,81 @@ function handleMenu(){
     nav_dialog.classList.toggle('hidden');
 }
 
-const prevButton = document.getElementById('prev-slide');
-        const nextButton = document.getElementById('next-slide');
-        const slides = document.querySelector('.carousel-slide');
-        let index = 0;
+// Set the duration for auto-sliding (in milliseconds)
+const slideInterval = 3000; // 3000 ms = 3 seconds
 
-        function showSlide(n) {
-            const totalSlides = slides.children.length;
-            index = (n + totalSlides) % totalSlides;
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }
+// Carousel for the first slider
+const carouselSlide1 = document.querySelector('.carousel-slide-1');
+const slides1 = carouselSlide1.querySelectorAll('.flex-shrink-0');
+const prevSlide1 = document.getElementById('prev-slide-1');
+const nextSlide1 = document.getElementById('next-slide-1');
 
-        prevButton.addEventListener('click', () => {
-            showSlide(index - 1);
-        });
+let currentIndex1 = 0;
 
-        nextButton.addEventListener('click', () => {
-            showSlide(index + 1);
-        });
+function showSlide1(index) {
+    carouselSlide1.style.transform = `translateX(-${index * 100}%)`;
+}
 
-        // Optionally add auto slide functionality
-        setInterval(() => {
-            showSlide(index + 1);
-        }, 25000); // 
+nextSlide1.addEventListener('click', () => {
+    currentIndex1 = (currentIndex1 + 1) % slides1.length;
+    showSlide1(currentIndex1);
+    resetAutoSlide1();
+});
+
+prevSlide1.addEventListener('click', () => {
+    currentIndex1 = (currentIndex1 - 1 + slides1.length) % slides1.length;
+    showSlide1(currentIndex1);
+    resetAutoSlide1();
+});
+
+// Auto slide function for the first slider
+function autoSlide1() {
+    currentIndex1 = (currentIndex1 + 1) % slides1.length;
+    showSlide1(currentIndex1);
+}
+let autoSlideInterval1 = setInterval(autoSlide1, slideInterval);
+
+function resetAutoSlide1() {
+    clearInterval(autoSlideInterval1);
+    autoSlideInterval1 = setInterval(autoSlide1, slideInterval);
+}
+
+
+// Carousel for the second slider
+const carouselSlide2 = document.querySelector('.carousel-slide-2');
+const slides2 = carouselSlide2.querySelectorAll('.flex-shrink-0');
+const prevSlide2 = document.getElementById('prev-slide-2');
+const nextSlide2 = document.getElementById('next-slide-2');
+
+let currentIndex2 = 0;
+
+function showSlide2(index) {
+    carouselSlide2.style.transform = `translateX(-${index * 100}%)`;
+}
+
+nextSlide2.addEventListener('click', () => {
+    currentIndex2 = (currentIndex2 + 1) % slides2.length;
+    showSlide2(currentIndex2);
+    resetAutoSlide2();
+});
+
+prevSlide2.addEventListener('click', () => {
+    currentIndex2 = (currentIndex2 - 1 + slides2.length) % slides2.length;
+    showSlide2(currentIndex2);
+    resetAutoSlide2();
+});
+
+// Auto slide function for the second slider
+function autoSlide2() {
+    currentIndex2 = (currentIndex2 + 1) % slides2.length;
+    showSlide2(currentIndex2);
+}
+let autoSlideInterval2 = setInterval(autoSlide2, slideInterval);
+
+function resetAutoSlide2() {
+    clearInterval(autoSlideInterval2);
+    autoSlideInterval2 = setInterval(autoSlide2, slideInterval);
+}
 
 
         
