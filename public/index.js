@@ -134,16 +134,29 @@ function showSearchResults() {
     // Show the results div if there’s text, otherwise hide it
     if (input.trim() !== "") {
         results.classList.remove("hidden");
-        document.getElementById("item_img").src=""
-        document.getElementById("itemname").innerText="No item in list.."
+        let div=document.getElementById("search-results")
+        while (div.children.length > 1) {
+            div.removeChild(div.lastChild);
+        }
         for(let i=0;i<data.length;i++){
             link1=(data[i].name.toLowerCase()).replace(/ /g,'-')
-            if (((data[i].name).slice(0,input.length)).toLowerCase()===(input).toLowerCase()){
-                document.getElementById("item_img").src=data[i].src
-                document.getElementById("itemname").innerText=data[i].name
-                document.getElementById("search-link").href="/"+link1
-                break;
+            if (((data[i].name).slice(0,input.length)).toLowerCase()===(input).toLowerCase()){        
+                const content=
+                `<a class="search-link  flex flex-row" href=${"/"+link1}>
+                <img id="item_img" src="${data[i].src}" class="w-[50px]">
+                <span class="text-2xl font-semibold pt-2 ml-4 hover:underline"  id="itemname">${data[i].name}</span>
+                </a>
+                `
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(content, "text/html");
+                const element = doc.body.firstChild;
+                div.appendChild(element);
             }
+        }
+        if(div.children.length>1)
+            div.firstElementChild.style.display="none"
+        else{
+            div.firstElementChild.style.display=""
         }
     } else {
         results.classList.add("hidden");
