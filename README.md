@@ -1,4 +1,4 @@
-ig Bear Farm Clone - Farm Products E-Commerce App
+Big Bear Farm Clone - Farm Products E-Commerce App
 This project is a Big Bear Farm clone app designed as an online platform for selling farm-produced goods such as pickles, jams, honey, and other homemade or organic products. It replicates a clean, user-friendly shopping experience that connects customers directly to farm-fresh items.
 
 Overview
@@ -20,9 +20,9 @@ User-Friendly Interface: Clean layout focusing on simplicity and easy access to 
 Order Management (optional): Integration with backend services for managing orders and inventory.
 
 Technologies Used
-Frontend: HTML, CSS, JavaScript (or React/Vue/Angular)
+Frontend: HTML, CSS, JavaScript
 
-Backend (optional): Node.js, Express, or any preferred backend for handling products and orders.
+Backend : Node.js, Express or any preferred backend for handling products and orders.
 
 Database (optional): MongoDB for storing product and order data.
 
